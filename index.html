@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An interactive comparison of two ways to experience the same ten-second wait.">
+  <title>Ten Seconds Two Ways</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#experiment">Skip to the experiment</a>
+
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="Ten Seconds Two Ways home">
+      <span aria-hidden="true">10</span>
+      <span>Seconds<br>Two Ways</span>
+    </a>
+    <nav aria-label="Page sections">
+      <a href="#experiment">Experiment</a>
+      <a href="#notes">Design notes</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="opening" aria-labelledby="page-title">
+      <div class="opening-copy">
+        <p class="question">Does feedback change how long a wait feels?</p>
+        <h1 id="page-title">The clock stays the same.<br>The experience does not.</h1>
+        <p class="intro">Run two ten-second trials. The first gives almost no feedback. The second gives the wait a visible rhythm. Then record which one felt shorter to you.</p>
+        <a class="text-link" href="#experiment">Begin the comparison <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="time-specimen" aria-hidden="true">
+        <span>00</span><b>:</b><span>10</span>
+        <p>same measured duration</p>
+      </div>
+    </section>
+
+    <section class="experiment" id="experiment" aria-labelledby="experiment-title">
+      <div class="section-heading">
+        <h2 id="experiment-title">Run both trials</h2>
+        <p>Each timer lasts exactly ten seconds. Complete one trial at a time.</p>
+      </div>
+
+      <div class="trial-sheet">
+        <article class="trial trial-plain" data-trial="plain">
+          <div class="trial-label">
+            <span>Trial A</span>
+            <h3>Minimal feedback</h3>
+          </div>
+          <div class="plain-stage" aria-hidden="true">
+            <div class="plain-loader"></div>
+            <p class="plain-message">Please wait…</p>
+          </div>
+          <div class="timer-readout" data-readout="plain" aria-hidden="true">10.0</div>
+          <p class="status" data-status="plain" role="status" aria-live="polite">Ready for a ten-second wait.</p>
+          <button class="trial-button" type="button" data-start="plain">Start Trial A</button>
+        </article>
+
+        <div class="sheet-rule" aria-hidden="true"><span>same 10 seconds</span></div>
+
+        <article class="trial trial-guided" data-trial="guided">
+          <div class="trial-label">
+            <span>Trial B</span>
+            <h3>Designed feedback</h3>
+          </div>
+          <div class="guided-stage" aria-hidden="true">
+            <div class="pulse-field">
+              <i></i><i></i><i></i><i></i><i></i>
+            </div>
+            <p class="guided-message">Ready when you are.</p>
+          </div>
+          <div class="timer-readout" data-readout="guided">10.0</div>
+          <div class="progress-track" aria-hidden="true"><span data-progress="guided"></span></div>
+          <p class="status" data-status="guided" role="status" aria-live="polite">Ready for a ten-second wait.</p>
+          <button class="trial-button" type="button" data-start="guided">Start Trial B</button>
+        </article>
+      </div>
+
+      <form class="reflection" id="reflection" aria-labelledby="reflection-title">
+        <fieldset disabled>
+          <legend id="reflection-title">Which wait felt shorter?</legend>
+          <p class="reflection-help">This records your impression only. It is not a scientific result.</p>
+          <div class="choices">
+            <label><input type="radio" name="felt-shorter" value="Trial A"><span>Trial A</span></label>
+            <label><input type="radio" name="felt-shorter" value="Trial B"><span>Trial B</span></label>
+            <label><input type="radio" name="felt-shorter" value="They felt equal"><span>They felt equal</span></label>
+          </div>
+          <button class="record-button" type="submit">Record my impression</button>
+        </fieldset>
+        <p class="reflection-result" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="notes" id="notes" aria-labelledby="notes-title">
+      <div class="notes-title-wrap">
+        <h2 id="notes-title">What changed between the trials</h2>
+        <p>The duration did not change. Only the interface did.</p>
+      </div>
+      <dl class="comparison-list">
+        <div>
+          <dt>Progress</dt>
+          <dd>Trial A hides elapsed time. Trial B makes progress visible.</dd>
+        </div>
+        <div>
+          <dt>Rhythm</dt>
+          <dd>Trial A repeats one static message. Trial B changes its prompt as time passes.</dd>
+        </div>
+        <div>
+          <dt>Expectation</dt>
+          <dd>Trial A leaves the ending uncertain. Trial B shows how close the ending is.</dd>
+        </div>
+      </dl>
+      <p class="closing-note">The page asks a design question. It does not claim that one response is universal.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Designed as a classroom interface experiment.</p>
+    <button type="button" class="reset-button">Reset both trials</button>
+  </footer>
+</body>
+</html>
